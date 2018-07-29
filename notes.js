@@ -7,7 +7,9 @@ const notesObj = require('./lib/notes-function.js');
 var user = os.userInfo();
 
 function writefile(){
-  fs.appendFile("note.txt", `Hello ${user.username}, How are you. You are ${notesObj.age} yrs of age. \r\n`, (err)=>{
+  fs.appendFile("note.txt",
+  `Hello ${user.username}, How are you. You are ${notesObj.age} yrs of age. \r\n`,
+  (err)=>{
     if(err){
     console.log("Error Appending file");
     console.log(err);
@@ -16,6 +18,6 @@ function writefile(){
 }
 
 notesObj.addNote();
-console.log(notesObj.addFun(3,4));
+console. log(notesObj.addFun(3,4));
 
 //writefile();
