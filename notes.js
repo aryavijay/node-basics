@@ -1,42 +1,33 @@
 console.log("Starting Notes App");
 
-const fs = require('fs');
-const os = require('os');
 const notesObj = require('./lib/notes-function.js');
 const _ = require('lodash');
+const argv = require('yargs').argv
 
-var user = os.userInfo();
-
-
-
-//notesObj.addNote();
-//console. log(notesObj.addFun(3,4));
-
-const command  = process.argv[2];
-
-// console.log("using lodash")
-// console.log(_.isString("ascascacs"));
-// console.log(_.isString(12));
-// console.log(_.uniq([1,2,3,6,8,1,3,5,2]));
-
-//notesObj.writefile();
+let res
+const command  = argv._[0];
 
 // Acting on Command
 switch (command){
   case 'add':
-    console.log("Add Note");
+      notesObj.addNote(argv.title, argv.body);
+      console.log("Note Added");
     break;
 
   case 'del':
-        console.log("delete Node");
+        res = notesObj.removeNote(argv.title);
+        console.log(res);
         break;
 
   case 'list':
-      console.log("List Node");
+      res = notesObj.list();
+      console.log(res);
       break;
 
   case 'read':
-      console.log("Read Specific Node");
+     res  = notesObj.readNote(argv.title);
+      console.log("===========");
+      console.log(res);
       break;
   default:
     console.log("!!! No Command Specified !!!");
