@@ -1,7 +1,7 @@
 {
-  "name": "node_basic",
+  "name": "node_basics",
   "version": "1.0.0",
-  "description": "learing node basics",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/aryavijay/node-basics.git"
   },
-  "keywords": [
-    "node"
-  ],
-  "author": "Vijay Kumar",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aryavijay/node-basics/issues"
