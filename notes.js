@@ -7,5 +7,4 @@ fs.appendFile("note.txt", "How are you. New Text. \r\n", (err)=>{
   console.log("Error Appending file");
   console.log(err);
   }
-
 });
