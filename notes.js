@@ -1,8 +1,13 @@
-console.log("Starting Notes App");
-
 const notesObj = require('./lib/notes-function.js');
 const _ = require('lodash');
-const argv = require('yargs').argv
+const arguments = require('yargs');
+
+let argv = arguments
+    .option('title', { alias: 't', description: 'Title to you note'})
+    .option('body', { alias: 'b', description: 'Body of Note'})
+    //.demandOption(['title', 'body'], 'Please provide both title and body arguments to work with this tool')
+    .help()
+    .argv;
 
 let res
 const command  = argv._[0];
