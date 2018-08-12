@@ -19,3 +19,24 @@ var interval = setInterval(() => {
 setTimeout(() => {
     clearInterval(interval);
 }, 15000);
+
+console.log("What the hell");
+console.log("loaded");
+
+console.log("Spread Operator");
+var nameArray = ['vijay', 'Akal', 'Saransh', 'Suman'];
+console.log(nameArray);
+console.log(...nameArray);
+var schoolArray = ['GVS', 'Ryan', ...nameArray];
+console.log(schoolArray);
+console.log(...schoolArray);
+
+console.log("Check Elvis Operator");
+var person = {name: "vijay", age: 35};
+console.log(person ? :.sex;
+)
+process.on('uncaughtException', function (err) {
+    console.error((new Date).toUTCString() + ' uncaughtException:', err.message);
+    console.error(err.stack);
+    process.exit(1)
+});
