@@ -1,28 +1,42 @@
 const express = require('express');
 const hbs = require('hbs');
 var app = express();
+
+hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
+hbs.registerHelper('year', () => new Date().getFullYear());
+hbs.registerHelper('capitalize', (text) => text.toUpperCase());
 
 app.use(express.static(__dirname + '/public'));
 
+var path = require('path');
+
+//Logger Middle ware
+
+app.use((req, res, next) => {
+    console.log("Request :");
+    console.log(req.method, req.url);
+    console.log("Response :");
+
+    next();
+});
+
 app.get('/', (req, res) => {
     res.render("home.hbs",
-        {welcomeMsg: 'Welcome to my first Express page', pageTitle: "About Page Title", year: new Date().getFullYear()}
+        {welcomeMsg: 'Welcome to my first Express page', pageTitle: "About Page Title"}
     )
 });
 
 app.get('/about', (req, res) => {
-    res.render("about.hbs", {pageTitle: "About Page Title", year: new Date().getFullYear()});
+    res.render("about.hbs", {pageTitle: "About Page Title"});
 });
 
 app.get("/json", (req, res) => {
     res.send({name: "vijay", age: 35, living: true});
 });
 
-app.get("/bad", (req, res) => {
-    res.send({
-        errorMessage: "Can't process request"
-    });
+app.get("/help", (req, res) => {
+    res.render("help.hbs");
 });
 
 
