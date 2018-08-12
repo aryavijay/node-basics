@@ -7,6 +7,7 @@
     "start": "nodemon index.js",
     "note": "nodemon notes.js",
     "server": "nodemon server.js -e js,hbs",
+    "todo": "nodemon todo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "express": "^4.16.3",
     "hbs": "^4.0.1",
     "lodash": "^4.17.10",
+    "mongodb": "^3.1.1",
     "yargs": "^12.0.1"
   }
 }
