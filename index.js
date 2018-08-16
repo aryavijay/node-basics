@@ -1,3 +1,17 @@
+const fs = require('fs');
+
+process.on('uncaughtException', function (err) {
+    console.error(err);
+    console.log("Node NOT Exiting...");
+});
+
+process.on('unhandledRejection', function (err) {
+    console.error(err);
+    console.log("Node NOT Exiting On Rejection...");
+});
+
+fs.readFile('textfile.txt');
+
 console.log("How are you");
 console.log("Factorial");
 
@@ -33,10 +47,8 @@ console.log(...schoolArray);
 
 console.log("Check Elvis Operator");
 var person = {name: "vijay", age: 35};
-console.log(person ? :.sex;
-)
-process.on('uncaughtException', function (err) {
-    console.error((new Date).toUTCString() + ' uncaughtException:', err.message);
-    console.error(err.stack);
-    process.exit(1)
-});
+try{
+    console.log(person.sex);
+}catch(err ){
+    console.log(err);
+}

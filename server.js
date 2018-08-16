@@ -39,7 +39,6 @@ app.get("/help", (req, res) => {
     res.render("help.hbs");
 });
 
-
 app.listen('3000', () => {
     console.log("Server started at : 'http://localhost:3000'")
 });
