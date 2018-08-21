@@ -2,10 +2,19 @@ const express = require('express');
 const hbs = require('hbs');
 var app = express();
 
+process.on('uncaughtException', function (err) {
+    console.error((new Date).toUTCString() + ' uncaughtException:', err.message);
+    console.error(err.stack);
+    process.exit(1)
+});
+
+console.log(require.cache.map(x => x));
+
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 hbs.registerHelper('year', () => new Date().getFullYear());
 hbs.registerHelper('capitalize', (text) => text.toUpperCase());
+
 
 app.use(express.static(__dirname + '/public'));
 
